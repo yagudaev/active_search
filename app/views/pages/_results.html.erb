@@ -1,0 +1,25 @@
+Count: <%= @pages.count %>
+Took: <%= @results.took %>ms
+<table>
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th>Content</th>
+      <th>score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pages.each_with_index do |page, index| %>
+      <tr>
+        <td><%= link_to page.link, "/#{page.link}" %></td>
+        <td><%= @results[index].respond_to?(:highlight) ? @results[index].highlight.content.first.html_safe : page.content %></td>
+        <td><%= @results[index]._score %></td>
+        <td><%= link_to 'Show', page %></td>
+        <td><%= link_to 'Edit', edit_page_path(page) %></td>
+        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
