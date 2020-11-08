@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     if params[:q].present?
-      @results = Page.search(query: { match: { content: params[:q] } }, highlight: { fields: { content: {} } })
+      @results = Page.search(query: { fuzzy: { content: { value: params[:q] } } }, highlight: { fields: { content: {} } })
       @has_highlights = true
     else
       @results = Page.search('*')
