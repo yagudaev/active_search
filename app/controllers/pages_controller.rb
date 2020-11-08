@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @results = Page.search(params[:q] || '*')
+    @pages = @results.records
   end
 
   # GET /pages/1
@@ -67,7 +68,7 @@ class PagesController < ApplicationController
       Page.create(link: File.basename(file_path, '.md'), content: open(file_path).read)
     end
 
-    render plain: 'Imported successfully!'
+    render plain: "Imported successfully! Created #{Page.count} pages"
   end
 
   private
