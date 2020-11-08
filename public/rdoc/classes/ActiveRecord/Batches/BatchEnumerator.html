@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActiveRecord::Batches::BatchEnumerator</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActiveRecord", "Batches", "BatchEnumerator"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActiveRecord::Batches::BatchEnumerator">
+
+
+
+    <meta name="keywords" content="ActiveRecord::Batches::BatchEnumerator class">
+
+    <meta name="keywords" content="each_record, delete_all, update_all, destroy_all, each">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Class</span>
+            ActiveRecord::Batches::BatchEnumerator
+
+                <span class="parent">&lt;
+
+                    <a href="../../Object.html">Object</a>
+
+                </span>
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/activerecord/lib/active_record/relation/batches/batch_enumerator_rb.html">activerecord/lib/active_record/relation/batches/batch_enumerator.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>D</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-delete_all">delete_all</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-destroy_all">destroy_all</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>E</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-each">each</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-each_record">each_record</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>U</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-update_all">update_all</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+
+        <li>
+
+            <a href="../../Enumerable.html">
+              Enumerable
+            </a>
+
+        </li>
+
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_all">
+
+              <b>delete_all</b>()
+
+            <a href="../../../classes/ActiveRecord/Batches/BatchEnumerator.html#method-i-delete_all" name="method-i-delete_all" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Deletes records in batches. Returns the total number of rows affected.</p>
+
+<pre><code>Person.in_batches.delete_all
+</code></pre>
+
+<p>See <a href="../Relation.html#method-i-delete_all"><code>Relation#delete_all</code></a> for details of how each batch is deleted.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-delete_all_source')" id="l_method-i-delete_all_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/relation/batches/batch_enumerator.rb#L49" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-delete_all_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches/batch_enumerator.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_all</span>
+  <span class="ruby-identifier">sum</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:delete_all</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy_all">
+
+              <b>destroy_all</b>()
+
+            <a href="../../../classes/ActiveRecord/Batches/BatchEnumerator.html#method-i-destroy_all" name="method-i-destroy_all" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Destroys records in batches.</p>
+
+<pre><code>Person.where(&quot;age &lt; 10&quot;).in_batches.destroy_all
+</code></pre>
+
+<p>See <a href="../Relation.html#method-i-destroy_all"><code>Relation#destroy_all</code></a> for details of how each batch is destroyed.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-destroy_all_source')" id="l_method-i-destroy_all_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/relation/batches/batch_enumerator.rb#L69" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-destroy_all_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches/batch_enumerator.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy_all</span>
+  <span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:destroy_all</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-each">
+
+              <b>each</b>()
+
+            <a href="../../../classes/ActiveRecord/Batches/BatchEnumerator.html#method-i-each" name="method-i-each" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Yields an <a href="../Relation.html"><code>ActiveRecord::Relation</code></a> object for each batch of records.</p>
+
+<pre><code>Person.in_batches.each do |relation|
+  relation.update_all(awesome: true)
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-each_source')" id="l_method-i-each_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/relation/batches/batch_enumerator.rb#L78" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-each_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches/batch_enumerator.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>
+  <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@relation</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:in_batches</span>, <span class="ruby-value">of:</span> <span class="ruby-ivar">@of</span>, <span class="ruby-value">start:</span> <span class="ruby-ivar">@start</span>, <span class="ruby-value">finish:</span> <span class="ruby-ivar">@finish</span>, <span class="ruby-value">load:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">relation</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">relation</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">enum</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-each_record">
+
+              <b>each_record</b>()
+
+            <a href="../../../classes/ActiveRecord/Batches/BatchEnumerator.html#method-i-each_record" name="method-i-each_record" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Looping through a collection of records from the database (using the <code>all</code> method, for example) is very inefficient since it will try to instantiate all the objects at once.</p>
+
+<p>In that case, batch processing methods allow you to work with the records in batches, thereby greatly reducing memory consumption.</p>
+
+<pre><code>Person.in_batches.each_record do |person|
+  person.do_awesome_stuff
+end
+
+Person.where(&quot;age &gt; 21&quot;).in_batches(of: 10).each_record do |person|
+  person.party_all_night!
+end
+</code></pre>
+
+<p>If you do not provide a block to <a href="BatchEnumerator.html#method-i-each_record"><code>each_record</code></a>, it will return an Enumerator for chaining with other methods:</p>
+
+<pre><code>Person.in_batches.each_record.with_index do |person, index|
+  person.award_trophy(index + 1)
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-each_record_source')" id="l_method-i-each_record_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/relation/batches/batch_enumerator.rb#L36" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-each_record_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches/batch_enumerator.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_record</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_record</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-ivar">@relation</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:in_batches</span>, <span class="ruby-value">of:</span> <span class="ruby-ivar">@of</span>, <span class="ruby-value">start:</span> <span class="ruby-ivar">@start</span>, <span class="ruby-value">finish:</span> <span class="ruby-ivar">@finish</span>, <span class="ruby-value">load:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">relation</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">records</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">record</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">record</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-update_all">
+
+              <b>update_all</b>(updates)
+
+            <a href="../../../classes/ActiveRecord/Batches/BatchEnumerator.html#method-i-update_all" name="method-i-update_all" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Updates records in batches. Returns the total number of rows affected.</p>
+
+<pre><code>Person.in_batches.update_all(&quot;age = age + 1&quot;)
+</code></pre>
+
+<p>See <a href="../Relation.html#method-i-update_all"><code>Relation#update_all</code></a> for details of how each batch is updated.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-update_all_source')" id="l_method-i-update_all_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/relation/batches/batch_enumerator.rb#L58" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-update_all_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/relation/batches/batch_enumerator.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update_all</span>(<span class="ruby-identifier">updates</span>)
+  <span class="ruby-identifier">sum</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">relation</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">update_all</span>(<span class="ruby-identifier">updates</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

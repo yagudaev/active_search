@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Minitest::SuppressedSummaryReporter</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["Minitest", "SuppressedSummaryReporter"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="Minitest::SuppressedSummaryReporter">
+
+
+
+    <meta name="keywords" content="Minitest::SuppressedSummaryReporter class">
+
+    <meta name="keywords" content="aggregated_results">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Class</span>
+            Minitest::SuppressedSummaryReporter
+
+                <span class="parent">&lt;
+
+                    SummaryReporter
+
+                </span>
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../files/railties/lib/minitest/rails_plugin_rb.html">railties/lib/minitest/rails_plugin.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>A</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-aggregated_results">aggregated_results</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-aggregated_results">
+
+              <b>aggregated_results</b>(*)
+
+            <a href="../../classes/Minitest/SuppressedSummaryReporter.html#method-i-aggregated_results" name="method-i-aggregated_results" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Disable extra failure output after a run if output is inline.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-aggregated_results_source')" id="l_method-i-aggregated_results_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/railties/lib/minitest/rails_plugin.rb#L23" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-aggregated_results_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File railties/lib/minitest/rails_plugin.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">aggregated_results</span>(<span class="ruby-operator">*</span>)
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:output_inline</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionController::ParameterEncoding::ClassMethods</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionController", "ParameterEncoding", "ClassMethods"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionController::ParameterEncoding::ClassMethods">
+
+
+
+    <meta name="keywords" content="ActionController::ParameterEncoding::ClassMethods class">
+
+    <meta name="keywords" content="skip_parameter_encoding, param_encoding">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionController::ParameterEncoding::ClassMethods
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/actionpack/lib/action_controller/metal/parameter_encoding_rb.html">actionpack/lib/action_controller/metal/parameter_encoding.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>P</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-param_encoding">param_encoding</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>S</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-skip_parameter_encoding">skip_parameter_encoding</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-param_encoding">
+
+              <b>param_encoding</b>(action, param, encoding)
+
+            <a href="../../../classes/ActionController/ParameterEncoding/ClassMethods.html#method-i-param_encoding" name="method-i-param_encoding" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Specify the encoding for a parameter on an action. If not specified the default is UTF-8.</p>
+
+<p>You can specify a binary (ASCII_8BIT) parameter with:</p>
+
+<pre><code>class RepositoryController &lt; ActionController::Base
+  # This specifies that file_path is not UTF-8 and is instead ASCII_8BIT
+  param_encoding :show, :file_path, Encoding::ASCII_8BIT
+
+  def show
+    @repo = Repository.find_by_filesystem_path params[:file_path]
+
+    # params[:repo_name] remains UTF-8 encoded
+    @repo_name = params[:repo_name]
+  end
+
+  def index
+    @repositories = Repository.all
+  end
+end
+</code></pre>
+
+<p>The file_path parameter on the show action would be encoded as ASCII-8BIT, but all other arguments will remain UTF-8 encoded. This is useful in the case where an application must handle data but encoding of the data is unknown, like file system data.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-param_encoding_source')" id="l_method-i-param_encoding_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_controller/metal/parameter_encoding.rb#L77" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-param_encoding_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/metal/parameter_encoding.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">param_encoding</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">encoding</span>)
+  <span class="ruby-ivar">@_parameter_encodings</span>[<span class="ruby-identifier">action</span>.<span class="ruby-identifier">to_s</span>][<span class="ruby-identifier">param</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">encoding</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-skip_parameter_encoding">
+
+              <b>skip_parameter_encoding</b>(action)
+
+            <a href="../../../classes/ActionController/ParameterEncoding/ClassMethods.html#method-i-skip_parameter_encoding" name="method-i-skip_parameter_encoding" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Specify that a given action&#39;s parameters should all be encoded as ASCII-8BIT (it “skips” the encoding default of UTF-8).</p>
+
+<p>For example, a controller would use it like this:</p>
+
+<pre><code>class RepositoryController &lt; ActionController::Base
+  skip_parameter_encoding :show
+
+  def show
+    @repo = Repository.find_by_filesystem_path params[:file_path]
+
+    # `repo_name` is guaranteed to be UTF-8, but was ASCII-8BIT, so
+    # tag it as such
+    @repo_name = params[:repo_name].force_encoding &#39;UTF-8&#39;
+  end
+
+  def index
+    @repositories = Repository.all
+  end
+end
+</code></pre>
+
+<p>The show action in the above controller would have all parameter values encoded as ASCII-8BIT. This is useful in the case where an application must handle data but encoding of the data is unknown, like file system data.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-skip_parameter_encoding_source')" id="l_method-i-skip_parameter_encoding_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_controller/metal/parameter_encoding.rb#L48" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-skip_parameter_encoding_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_controller/metal/parameter_encoding.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">skip_parameter_encoding</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-ivar">@_parameter_encodings</span>[<span class="ruby-identifier">action</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

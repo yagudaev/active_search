@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionDispatch::IntegrationTest::UrlOptions</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionDispatch", "IntegrationTest", "UrlOptions"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionDispatch::IntegrationTest::UrlOptions">
+
+
+
+    <meta name="keywords" content="ActionDispatch::IntegrationTest::UrlOptions class">
+
+    <meta name="keywords" content="url_options">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionDispatch::IntegrationTest::UrlOptions
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/actionpack/lib/action_dispatch/testing/integration_rb.html">actionpack/lib/action_dispatch/testing/integration.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>U</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-url_options">url_options</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-url_options">
+
+              <b>url_options</b>()
+
+            <a href="../../../classes/ActionDispatch/IntegrationTest/UrlOptions.html#method-i-url_options" name="method-i-url_options" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-url_options_source')" id="l_method-i-url_options_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L638" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-url_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 638</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">url_options</span>
+  <span class="ruby-identifier">integration_session</span>.<span class="ruby-identifier">url_options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

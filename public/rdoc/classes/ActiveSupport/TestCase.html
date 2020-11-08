@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActiveSupport::TestCase</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActiveSupport", "TestCase"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActiveSupport::TestCase">
+
+
+
+    <meta name="keywords" content="ActiveSupport::TestCase class">
+
+    <meta name="keywords" content="test_order=, test_order, parallelize, parallelize_setup, parallelize_teardown">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Class</span>
+            ActiveSupport::TestCase
+
+                <span class="parent">&lt;
+
+                    Minitest::Test
+
+                </span>
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../files/activesupport/lib/active_support/test_case_rb.html">activesupport/lib/active_support/test_case.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>P</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-c-parallelize">parallelize</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-c-parallelize_setup">parallelize_setup</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-c-parallelize_teardown">parallelize_teardown</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>T</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-c-test_order">test_order</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-c-test_order-3D">test_order=</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+
+        <li>
+
+            <a href="Testing/Assertions.html">
+              ActiveSupport::Testing::Assertions
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="Testing/TimeHelpers.html">
+              ActiveSupport::Testing::TimeHelpers
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="Testing/FileFixtures.html">
+              ActiveSupport::Testing::FileFixtures
+            </a>
+
+        </li>
+
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+
+          <tr valign='top'>
+            <td class="attr-name">Assertion</td>
+            <td>=</td>
+            <td class="attr-value">Minitest::Assertion</td>
+          </tr>
+
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+
+
+      </table>
+
+
+
+
+
+
+    <!-- Methods -->
+
+      <div class="sectiontitle">Class Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-parallelize">
+
+              <b>parallelize</b>(workers: :number_of_processors, with: :processes)
+
+            <a href="../../classes/ActiveSupport/TestCase.html#method-c-parallelize" name="method-c-parallelize" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Parallelizes the test suite.</p>
+
+<p>Takes a <code>workers</code> argument that controls how many times the process is forked. For each process a new database will be created suffixed with the worker number.</p>
+
+<pre><code>test-database-0
+test-database-1
+</code></pre>
+
+<p>If <code>ENV["PARALLEL_WORKERS"]</code> is set the workers argument will be ignored and the environment variable will be used instead. This is useful for CI environments, or other environments where you may need more workers than you do for local testing.</p>
+
+<p>If the number of workers is set to <code>1</code> or fewer, the tests will not be parallelized.</p>
+
+<p>If <code>workers</code> is set to <code>:number_of_processors</code>, the number of workers will be set to the actual core count on the machine you are on.</p>
+
+<p>The default parallelization method is to fork processes. If you&#39;d like to use threads instead you can pass <code>with: :threads</code> to the <code>parallelize</code> method. Note the threaded parallelization does not create multiple database and will not work with system tests at this time.</p>
+
+<pre><code>parallelize(workers: :number_of_processors, with: :threads)
+</code></pre>
+
+<p>The threaded parallelization uses minitest&#39;s parallel executor directly. The processes parallelization uses a Ruby DRb server.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-parallelize_source')" id="l_method-c-parallelize_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activesupport/lib/active_support/test_case.rb#L74" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-parallelize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/test_case.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parallelize</span>(<span class="ruby-value">workers:</span> <span class="ruby-value">:number_of_processors</span>, <span class="ruby-value">with:</span> <span class="ruby-value">:processes</span>)
+  <span class="ruby-identifier">workers</span> = <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">physical_processor_count</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">workers</span> <span class="ruby-operator">==</span> <span class="ruby-value">:number_of_processors</span>
+  <span class="ruby-identifier">workers</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;PARALLEL_WORKERS&quot;</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;PARALLEL_WORKERS&quot;</span>]
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">workers</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">executor</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">with</span>
+             <span class="ruby-keyword">when</span> <span class="ruby-value">:processes</span>
+               <span class="ruby-constant">Testing</span><span class="ruby-operator">::</span><span class="ruby-constant">Parallelization</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">workers</span>)
+             <span class="ruby-keyword">when</span> <span class="ruby-value">:threads</span>
+               <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Parallel</span><span class="ruby-operator">::</span><span class="ruby-constant">Executor</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">workers</span>)
+             <span class="ruby-keyword">else</span>
+               <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{with} is not a supported parallelization executor.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lock_threads</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">lock_threads</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">with</span> <span class="ruby-operator">==</span> <span class="ruby-value">:threads</span>
+
+  <span class="ruby-constant">Minitest</span>.<span class="ruby-identifier">parallel_executor</span> = <span class="ruby-identifier">executor</span>
+
+  <span class="ruby-identifier">parallelize_me!</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-parallelize_setup">
+
+              <b>parallelize_setup</b>(&amp;block)
+
+            <a href="../../classes/ActiveSupport/TestCase.html#method-c-parallelize_setup" name="method-c-parallelize_setup" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Set up hook for parallel testing. This can be used if you have multiple databases or any behavior that needs to be run after the process is forked but before the tests run.</p>
+
+<p>Note: this feature is not available with the threaded parallelization.</p>
+
+<p>In your <code>test_helper.rb</code> add the following:</p>
+
+<pre><code>class ActiveSupport::TestCase
+  parallelize_setup do
+    # create databases
+  end
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-parallelize_setup_source')" id="l_method-c-parallelize_setup_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activesupport/lib/active_support/test_case.rb#L109" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-parallelize_setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/test_case.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parallelize_setup</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Testing</span><span class="ruby-operator">::</span><span class="ruby-constant">Parallelization</span>.<span class="ruby-identifier">after_fork_hook</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worker</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">worker</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-parallelize_teardown">
+
+              <b>parallelize_teardown</b>(&amp;block)
+
+            <a href="../../classes/ActiveSupport/TestCase.html#method-c-parallelize_teardown" name="method-c-parallelize_teardown" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Clean up hook for parallel testing. This can be used to drop databases if your app uses multiple write/read databases or other clean up before the tests finish. This runs before the forked process is closed.</p>
+
+<p>Note: this feature is not available with the threaded parallelization.</p>
+
+<p>In your <code>test_helper.rb</code> add the following:</p>
+
+<pre><code>class ActiveSupport::TestCase
+  parallelize_teardown do
+    # drop databases
+  end
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-parallelize_teardown_source')" id="l_method-c-parallelize_teardown_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activesupport/lib/active_support/test_case.rb#L128" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-parallelize_teardown_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/test_case.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parallelize_teardown</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Testing</span><span class="ruby-operator">::</span><span class="ruby-constant">Parallelization</span>.<span class="ruby-identifier">run_cleanup_hook</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worker</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">worker</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-test_order">
+
+              <b>test_order</b>()
+
+            <a href="../../classes/ActiveSupport/TestCase.html#method-c-test_order" name="method-c-test_order" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Returns the order in which test cases are run.</p>
+
+<pre><code>ActiveSupport::TestCase.test_order # =&gt; :random
+</code></pre>
+
+<p>Possible values are <code>:random</code>, <code>:parallel</code>, <code>:alpha</code>, <code>:sorted</code>. Defaults to <code>:random</code>.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-test_order_source')" id="l_method-c-test_order_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activesupport/lib/active_support/test_case.rb#L41" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-test_order_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/test_case.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_order</span>
+  <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">test_order</span> <span class="ruby-operator">||=</span> <span class="ruby-value">:random</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-test_order-3D">
+
+              <b>test_order=</b>(new_order)
+
+            <a href="../../classes/ActiveSupport/TestCase.html#method-c-test_order-3D" name="method-c-test_order-3D" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Sets the order in which test cases are run.</p>
+
+<pre><code>ActiveSupport::TestCase.test_order = :random # =&gt; :random
+</code></pre>
+
+<p>Valid values are:</p>
+<ul><li>
+<p><code>:random</code>   (to run tests in random order)</p>
+</li><li>
+<p><code>:parallel</code> (to run tests in parallel)</p>
+</li><li>
+<p><code>:sorted</code>   (to run tests alphabetically by method name)</p>
+</li><li>
+<p><code>:alpha</code>    (equivalent to <code>:sorted</code>)</p>
+</li></ul>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-test_order-3D_source')" id="l_method-c-test_order-3D_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activesupport/lib/active_support/test_case.rb#L31" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-test_order-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activesupport/lib/active_support/test_case.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_order=</span>(<span class="ruby-identifier">new_order</span>)
+  <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">test_order</span> = <span class="ruby-identifier">new_order</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

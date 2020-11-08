@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionMailer::TestHelper</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionMailer", "TestHelper"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionMailer::TestHelper">
+
+
+
+    <meta name="description" content="Provides helper methods for testing Action Mailer, including assert_emails and assert_no_emails.">
+    <meta property="og:description" content="Provides helper methods for testing Action Mailer, including assert_emails and assert_no_emails.">
+
+
+    <meta name="keywords" content="ActionMailer::TestHelper class">
+
+    <meta name="keywords" content="assert_emails, assert_no_emails, assert_enqueued_emails, assert_enqueued_email_with, assert_no_enqueued_emails">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionMailer::TestHelper
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../files/actionmailer/lib/action_mailer/test_helper_rb.html">actionmailer/lib/action_mailer/test_helper.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+    <div class="description">
+
+<p>Provides helper methods for testing Action Mailer, including <a href="TestHelper.html#method-i-assert_emails"><code>assert_emails</code></a> and <a href="TestHelper.html#method-i-assert_no_emails"><code>assert_no_emails</code></a>.</p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>A</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-assert_emails">assert_emails</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-assert_enqueued_email_with">assert_enqueued_email_with</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-assert_enqueued_emails">assert_enqueued_emails</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-assert_no_emails">assert_no_emails</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-assert_no_enqueued_emails">assert_no_enqueued_emails</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+
+        <li>
+
+            <a href="../ActiveJob/TestHelper.html">
+              ActiveJob::TestHelper
+            </a>
+
+        </li>
+
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-assert_emails">
+
+              <b>assert_emails</b>(number, &amp;block)
+
+            <a href="../../classes/ActionMailer/TestHelper.html#method-i-assert_emails" name="method-i-assert_emails" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Asserts that the number of emails sent matches the given number.</p>
+
+<pre><code>def test_emails
+  assert_emails 0
+  ContactMailer.welcome.deliver_now
+  assert_emails 1
+  ContactMailer.welcome.deliver_now
+  assert_emails 2
+end
+</code></pre>
+
+<p>If a block is passed, that block should cause the specified number of emails to be sent.</p>
+
+<pre><code>def test_emails_again
+  assert_emails 1 do
+    ContactMailer.welcome.deliver_now
+  end
+
+  assert_emails 2 do
+    ContactMailer.welcome.deliver_now
+    ContactMailer.welcome.deliver_later
+  end
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-assert_emails_source')" id="l_method-i-assert_emails_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailer/lib/action_mailer/test_helper.rb#L34" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-assert_emails_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailer/lib/action_mailer/test_helper.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">assert_emails</span>(<span class="ruby-identifier">number</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">original_count</span> = <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">deliveries</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">perform_enqueued_jobs</span>(<span class="ruby-value">only:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">job</span>) { <span class="ruby-identifier">delivery_job_filter</span>(<span class="ruby-identifier">job</span>) }, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">new_count</span> = <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">deliveries</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">number</span>, <span class="ruby-identifier">new_count</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">original_count</span>, <span class="ruby-node">&quot;#{number} emails expected, but #{new_count - original_count} were sent&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">number</span>, <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">deliveries</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-assert_enqueued_email_with">
+
+              <b>assert_enqueued_email_with</b>(mailer, method, args: nil, queue: &quot;mailers&quot;, &amp;block)
+
+            <a href="../../classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_email_with" name="method-i-assert_enqueued_email_with" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Asserts that a specific email has been enqueued, optionally matching arguments.</p>
+
+<pre><code>def test_email
+  ContactMailer.welcome.deliver_later
+  assert_enqueued_email_with ContactMailer, :welcome
+end
+
+def test_email_with_arguments
+  ContactMailer.welcome(&quot;Hello&quot;, &quot;Goodbye&quot;).deliver_later
+  assert_enqueued_email_with ContactMailer, :welcome, args: [&quot;Hello&quot;, &quot;Goodbye&quot;]
+end
+</code></pre>
+
+<p>If a block is passed, that block should cause the specified email to be enqueued.</p>
+
+<pre><code>def test_email_in_block
+  assert_enqueued_email_with ContactMailer, :welcome do
+    ContactMailer.welcome.deliver_later
+  end
+end
+</code></pre>
+
+<p>If <code>args</code> is provided as a <a href="../Hash.html"><code>Hash</code></a>, a parameterized email is matched.</p>
+
+<pre><code>def test_parameterized_email
+  assert_enqueued_email_with ContactMailer, :welcome,
+    args: {email: &#39;user@example.com&#39;} do
+    ContactMailer.with(email: &#39;user@example.com&#39;).welcome.deliver_later
+  end
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-assert_enqueued_email_with_source')" id="l_method-i-assert_enqueued_email_with_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailer/lib/action_mailer/test_helper.rb#L126" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-assert_enqueued_email_with_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailer/lib/action_mailer/test_helper.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">assert_enqueued_email_with</span>(<span class="ruby-identifier">mailer</span>, <span class="ruby-identifier">method</span>, <span class="ruby-value">args:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">queue:</span> <span class="ruby-string">&quot;mailers&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">args</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    [<span class="ruby-identifier">mailer</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-string">&quot;deliver_now&quot;</span>, <span class="ruby-value">params:</span> <span class="ruby-identifier">args</span>, <span class="ruby-value">args:</span> []]
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-identifier">mailer</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-string">&quot;deliver_now&quot;</span>, <span class="ruby-value">args:</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">args</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_enqueued_with</span>(<span class="ruby-value">job:</span> <span class="ruby-identifier">mailer</span>.<span class="ruby-identifier">delivery_job</span>, <span class="ruby-value">args:</span> <span class="ruby-identifier">args</span>, <span class="ruby-value">queue:</span> <span class="ruby-identifier">queue</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-assert_enqueued_emails">
+
+              <b>assert_enqueued_emails</b>(number, &amp;block)
+
+            <a href="../../classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_emails" name="method-i-assert_enqueued_emails" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Asserts that the number of emails enqueued for later delivery matches the given number.</p>
+
+<pre><code>def test_emails
+  assert_enqueued_emails 0
+  ContactMailer.welcome.deliver_later
+  assert_enqueued_emails 1
+  ContactMailer.welcome.deliver_later
+  assert_enqueued_emails 2
+end
+</code></pre>
+
+<p>If a block is passed, that block should cause the specified number of emails to be enqueued.</p>
+
+<pre><code>def test_emails_again
+  assert_enqueued_emails 1 do
+    ContactMailer.welcome.deliver_later
+  end
+
+  assert_enqueued_emails 2 do
+    ContactMailer.welcome.deliver_later
+    ContactMailer.welcome.deliver_later
+  end
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-assert_enqueued_emails_source')" id="l_method-i-assert_enqueued_emails_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailer/lib/action_mailer/test_helper.rb#L92" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-assert_enqueued_emails_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailer/lib/action_mailer/test_helper.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">assert_enqueued_emails</span>(<span class="ruby-identifier">number</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">assert_enqueued_jobs</span>(<span class="ruby-identifier">number</span>, <span class="ruby-value">only:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">job</span>) { <span class="ruby-identifier">delivery_job_filter</span>(<span class="ruby-identifier">job</span>) }, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-assert_no_emails">
+
+              <b>assert_no_emails</b>(&amp;block)
+
+            <a href="../../classes/ActionMailer/TestHelper.html#method-i-assert_no_emails" name="method-i-assert_no_emails" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Asserts that no emails have been sent.</p>
+
+<pre><code>def test_emails
+  assert_no_emails
+  ContactMailer.welcome.deliver_now
+  assert_emails 1
+end
+</code></pre>
+
+<p>If a block is passed, that block should not cause any emails to be sent.</p>
+
+<pre><code>def test_emails_again
+  assert_no_emails do
+    # No emails should be sent from this block
+  end
+end
+</code></pre>
+
+<p>Note: This assertion is simply a shortcut for:</p>
+
+<pre><code>assert_emails 0, &amp;block
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-assert_no_emails_source')" id="l_method-i-assert_no_emails_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailer/lib/action_mailer/test_helper.rb#L64" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-assert_no_emails_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailer/lib/action_mailer/test_helper.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">assert_no_emails</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">assert_emails</span> <span class="ruby-value">0</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-assert_no_enqueued_emails">
+
+              <b>assert_no_enqueued_emails</b>(&amp;block)
+
+            <a href="../../classes/ActionMailer/TestHelper.html#method-i-assert_no_enqueued_emails" name="method-i-assert_no_enqueued_emails" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Asserts that no emails are enqueued for later delivery.</p>
+
+<pre><code>def test_no_emails
+  assert_no_enqueued_emails
+  ContactMailer.welcome.deliver_later
+  assert_enqueued_emails 1
+end
+</code></pre>
+
+<p>If a block is provided, it should not cause any emails to be enqueued.</p>
+
+<pre><code>def test_no_emails
+  assert_no_enqueued_emails do
+    # No emails should be enqueued from this block
+  end
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-assert_no_enqueued_emails_source')" id="l_method-i-assert_no_enqueued_emails_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailer/lib/action_mailer/test_helper.rb#L150" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-assert_no_enqueued_emails_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailer/lib/action_mailer/test_helper.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">assert_no_enqueued_emails</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">assert_enqueued_emails</span> <span class="ruby-value">0</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

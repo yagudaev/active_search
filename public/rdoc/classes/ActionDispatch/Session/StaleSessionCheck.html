@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionDispatch::Session::StaleSessionCheck</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionDispatch", "Session", "StaleSessionCheck"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionDispatch::Session::StaleSessionCheck">
+
+
+
+    <meta name="keywords" content="ActionDispatch::Session::StaleSessionCheck class">
+
+    <meta name="keywords" content="load_session, extract_session_id, stale_session_check!">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionDispatch::Session::StaleSessionCheck
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/actionpack/lib/action_dispatch/middleware/session/abstract_store_rb.html">actionpack/lib/action_dispatch/middleware/session/abstract_store.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>E</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-extract_session_id">extract_session_id</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>L</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-load_session">load_session</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>S</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-stale_session_check-21">stale_session_check!</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_session_id">
+
+              <b>extract_session_id</b>(env)
+
+            <a href="../../../classes/ActionDispatch/Session/StaleSessionCheck.html#method-i-extract_session_id" name="method-i-extract_session_id" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-extract_session_id_source')" id="l_method-i-extract_session_id_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/middleware/session/abstract_store.rb#L48" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-extract_session_id_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/session/abstract_store.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_session_id</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">stale_session_check!</span> { <span class="ruby-keyword">super</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-load_session">
+
+              <b>load_session</b>(env)
+
+            <a href="../../../classes/ActionDispatch/Session/StaleSessionCheck.html#method-i-load_session" name="method-i-load_session" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-load_session_source')" id="l_method-i-load_session_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/middleware/session/abstract_store.rb#L44" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-load_session_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/session/abstract_store.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_session</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">stale_session_check!</span> { <span class="ruby-keyword">super</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-stale_session_check-21">
+
+              <b>stale_session_check!</b>()
+
+            <a href="../../../classes/ActionDispatch/Session/StaleSessionCheck.html#method-i-stale_session_check-21" name="method-i-stale_session_check-21" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-stale_session_check-21_source')" id="l_method-i-stale_session_check-21_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/middleware/session/abstract_store.rb#L52" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-stale_session_check-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/middleware/session/abstract_store.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stale_session_check!</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">argument_error</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">argument_error</span>.<span class="ruby-identifier">message</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{undefined class/module ([\w:]*\w)}</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-comment"># Note that the regexp does not allow $1 to end with a &#39;:&#39;.</span>
+      <span class="ruby-node">$1</span>.<span class="ruby-identifier">constantize</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>, <span class="ruby-constant">NameError</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Session</span><span class="ruby-operator">::</span><span class="ruby-constant">SessionRestoreError</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">retry</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

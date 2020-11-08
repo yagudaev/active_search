@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionCable::Channel::TestCase</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionCable", "Channel", "TestCase"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionCable::Channel::TestCase">
+
+
+
+    <meta name="description" content="Superclass for Action Cable channel functional tests.  Basic example  Functional tests are written as follows:  First, one uses the subscribe method to simulate subscription creation.">
+    <meta property="og:description" content="Superclass for Action Cable channel functional tests.  Basic example  Functional tests are written as follows:  First, one uses the subscribe method to simulate subscription creation.">
+
+
+    <meta name="keywords" content="ActionCable::Channel::TestCase class">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Class</span>
+            ActionCable::Channel::TestCase
+
+                <span class="parent">&lt;
+
+                    <a href="../../ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
+
+                </span>
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/actioncable/lib/action_cable/channel/test_case_rb.html">actioncable/lib/action_cable/channel/test_case.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+    <div class="description">
+
+<p>Superclass for Action Cable channel functional tests.</p>
+
+<h2 id="class-ActionCable::Channel::TestCase-label-Basic+example">Basic example</h2>
+
+<p>Functional tests are written as follows:</p>
+<ol><li>
+<p>First, one uses the <code>subscribe</code> method to simulate subscription creation.</p>
+</li><li>
+<p>Then, one asserts whether the current state is as expected. “State” can be anything: transmitted messages, subscribed streams, etc.</p>
+</li></ol>
+
+<p>For example:</p>
+
+<pre><code>class ChatChannelTest &lt; ActionCable::Channel::TestCase
+  def test_subscribed_with_room_number
+    # Simulate a subscription creation
+    subscribe room_number: 1
+
+    # Asserts that the subscription was successfully created
+    assert subscription.confirmed?
+
+    # Asserts that the channel subscribes connection to a stream
+    assert_has_stream &quot;chat_1&quot;
+
+    # Asserts that the channel subscribes connection to a specific
+    # stream created for a model
+    assert_has_stream_for Room.find(1)
+  end
+
+  def test_does_not_stream_with_incorrect_room_number
+    subscribe room_number: -1
+
+    # Asserts that not streams was started
+    assert_no_streams
+  end
+
+  def test_does_not_subscribe_without_room_number
+    subscribe
+
+    # Asserts that the subscription was rejected
+    assert subscription.rejected?
+  end
+end
+</code></pre>
+
+<p>You can also perform actions:</p>
+
+<pre><code>def test_perform_speak
+  subscribe room_number: 1
+
+  perform :speak, message: &quot;Hello, Rails!&quot;
+
+  assert_equal &quot;Hello, Rails!&quot;, transmissions.last[&quot;text&quot;]
+end
+</code></pre>
+
+<h2 id="class-ActionCable::Channel::TestCase-label-Special+methods">Special methods</h2>
+
+<p><a href="TestCase.html"><code>ActionCable::Channel::TestCase</code></a> will also automatically provide the following instance methods for use in the tests:</p>
+<dl class="rdoc-list note-list"><dt><strong>connection</strong>
+<dd>
+<p>An <a href="ConnectionStub.html"><code>ActionCable::Channel::ConnectionStub</code></a>, representing the current HTTP connection.</p>
+</dd><dt><strong>subscription</strong>
+<dd>
+<p>An instance of the current channel, created when you call `subscribe`.</p>
+</dd><dt><strong>transmissions</strong>
+<dd>
+<p>A list of all messages that have been transmitted into the channel.</p>
+</dd></dl>
+
+<h2 id="class-ActionCable::Channel::TestCase-label-Channel+is+automatically+inferred"><a href="../Channel.html"><code>Channel</code></a> is automatically inferred</h2>
+
+<p><a href="TestCase.html"><code>ActionCable::Channel::TestCase</code></a> will automatically infer the channel under test from the test class name. If the channel cannot be inferred from the test class name, you can explicitly set it with <code>tests</code>.</p>
+
+<pre><code>class SpecialEdgeCaseChannelTest &lt; ActionCable::Channel::TestCase
+  tests SpecialChannel
+end
+</code></pre>
+
+<h2 id="class-ActionCable::Channel::TestCase-label-Specifying+connection+identifiers">Specifying connection identifiers</h2>
+
+<p>You need to set up your connection manually to provide values for the identifiers. To do this just use:</p>
+
+<pre><code>stub_connection(user: users(:john))
+</code></pre>
+
+<h2 id="class-ActionCable::Channel::TestCase-label-Testing+broadcasting">Testing broadcasting</h2>
+
+<p><a href="TestCase.html"><code>ActionCable::Channel::TestCase</code></a> enhances <a href="../TestHelper.html"><code>ActionCable::TestHelper</code></a> assertions (e.g. <code>assert_broadcasts</code>) to handle broadcasting to models:</p>
+
+<pre><code># in your channel
+def speak(data)
+  broadcast_to room, text: data[&quot;message&quot;]
+end
+
+def test_speak
+  subscribe room_id: rooms(:chat).id
+
+  assert_broadcast_on(rooms(:chat), text: &quot;Hello, Rails!&quot;) do
+    perform :speak, message: &quot;Hello, Rails!&quot;
+  end
+end
+</code></pre>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+
+        <li>
+          <span class="type">MODULE</span>
+          <a href="TestCase/Behavior.html">ActionCable::Channel::TestCase::Behavior</a>
+        </li>
+
+    </ul>
+
+
+
+
+
+
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+
+        <li>
+
+            <a href="TestCase/Behavior.html">
+              ActionCable::Channel::TestCase::Behavior
+            </a>
+
+        </li>
+
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rails::Generators::Testing::Behaviour::ClassMethods</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["Rails", "Generators", "Testing", "Behaviour", "ClassMethods"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="Rails::Generators::Testing::Behaviour::ClassMethods">
+
+
+
+    <meta name="keywords" content="Rails::Generators::Testing::Behaviour::ClassMethods class">
+
+    <meta name="keywords" content="tests, arguments, destination">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            Rails::Generators::Testing::Behaviour::ClassMethods
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../../../files/railties/lib/rails/generators/testing/behaviour_rb.html">railties/lib/rails/generators/testing/behaviour.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>A</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-arguments">arguments</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>D</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-destination">destination</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>T</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-tests">tests</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-arguments">
+
+              <b>arguments</b>(array)
+
+            <a href="../../../../../classes/Rails/Generators/Testing/Behaviour/ClassMethods.html#method-i-arguments" name="method-i-arguments" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Sets default arguments on generator invocation. This can be overwritten when invoking it.</p>
+
+<pre><code>arguments %w(app_name --skip-active-record)
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-arguments_source')" id="l_method-i-arguments_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/railties/lib/rails/generators/testing/behaviour.rb#L39" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-arguments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File railties/lib/rails/generators/testing/behaviour.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">arguments</span>(<span class="ruby-identifier">array</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_arguments</span> = <span class="ruby-identifier">array</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-destination">
+
+              <b>destination</b>(path)
+
+            <a href="../../../../../classes/Rails/Generators/Testing/Behaviour/ClassMethods.html#method-i-destination" name="method-i-destination" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Sets the destination of generator files:</p>
+
+<pre><code>destination File.expand_path(&quot;../tmp&quot;, __dir__)
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-destination_source')" id="l_method-i-destination_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/railties/lib/rails/generators/testing/behaviour.rb#L46" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-destination_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File railties/lib/rails/generators/testing/behaviour.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destination</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">destination_root</span> = <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-tests">
+
+              <b>tests</b>(klass)
+
+            <a href="../../../../../classes/Rails/Generators/Testing/Behaviour/ClassMethods.html#method-i-tests" name="method-i-tests" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Sets which generator should be tested:</p>
+
+<pre><code>tests AppGenerator
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-tests_source')" id="l_method-i-tests_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/railties/lib/rails/generators/testing/behaviour.rb#L31" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-tests_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File railties/lib/rails/generators/testing/behaviour.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tests</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generator_class</span> = <span class="ruby-identifier">klass</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionCable::Connection::TestCase::Behavior</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionCable", "Connection", "TestCase", "Behavior"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionCable::Connection::TestCase::Behavior">
+
+
+
+    <meta name="keywords" content="ActionCable::Connection::TestCase::Behavior class">
+
+    <meta name="keywords" content="connect, disconnect, cookies">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionCable::Connection::TestCase::Behavior
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../../files/actioncable/lib/action_cable/connection/test_case_rb.html">actioncable/lib/action_cable/connection/test_case.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Behavior/ClassMethods.html">ActionCable::Connection::TestCase::Behavior::ClassMethods</a>
+        </li>
+
+    </ul>
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>C</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-connect">connect</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-cookies">cookies</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>D</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-disconnect">disconnect</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+
+        <li>
+
+            <a href="../../../ActiveSupport/Testing/ConstantLookup.html">
+              ActiveSupport::Testing::ConstantLookup
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="../Assertions.html">
+              ActionCable::Connection::Assertions
+            </a>
+
+        </li>
+
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+
+          <tr valign='top'>
+            <td class="attr-name">DEFAULT_PATH</td>
+            <td>=</td>
+            <td class="attr-value">&quot;/cable&quot;</td>
+          </tr>
+
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+
+
+      </table>
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-connect">
+
+              <b>connect</b>(path = ActionCable.server.config.mount_path, **request_params)
+
+            <a href="../../../../classes/ActionCable/Connection/TestCase/Behavior.html#method-i-connect" name="method-i-connect" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs connection attempt to exert <a href="Behavior.html#method-i-connect"><code>connect</code></a> on the connection under test.</p>
+
+<p>Accepts request path as the first argument and the following request options:</p>
+<ul><li>
+<p>params – URL parameters (<a href="../../../Hash.html"><code>Hash</code></a>)</p>
+</li><li>
+<p>headers – request headers (<a href="../../../Hash.html"><code>Hash</code></a>)</p>
+</li><li>
+<p>session – session data (<a href="../../../Hash.html"><code>Hash</code></a>)</p>
+</li><li>
+<p>env – additional Rack env configuration (<a href="../../../Hash.html"><code>Hash</code></a>)</p>
+</li></ul>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-connect_source')" id="l_method-i-connect_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actioncable/lib/action_cable/connection/test_case.rb#L183" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-connect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actioncable/lib/action_cable/connection/test_case.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connect</span>(<span class="ruby-identifier">path</span> = <span class="ruby-constant">ActionCable</span>.<span class="ruby-identifier">server</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">mount_path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">request_params</span>)
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">DEFAULT_PATH</span>
+
+  <span class="ruby-identifier">connection</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">connection_class</span>.<span class="ruby-identifier">allocate</span>
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">include</span>(<span class="ruby-constant">TestConnection</span>)
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:initialize</span>, <span class="ruby-identifier">build_test_request</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">request_params</span>))
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">connect</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:connect</span>)
+
+  <span class="ruby-comment"># Only set instance variable if connected successfully</span>
+  <span class="ruby-ivar">@connection</span> = <span class="ruby-identifier">connection</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-cookies">
+
+              <b>cookies</b>()
+
+            <a href="../../../../classes/ActionCable/Connection/TestCase/Behavior.html#method-i-cookies" name="method-i-cookies" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-cookies_source')" id="l_method-i-cookies_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actioncable/lib/action_cable/connection/test_case.rb#L203" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-cookies_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actioncable/lib/action_cable/connection/test_case.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cookies</span>
+  <span class="ruby-ivar">@cookie_jar</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">TestCookieJar</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-disconnect">
+
+              <b>disconnect</b>()
+
+            <a href="../../../../classes/ActionCable/Connection/TestCase/Behavior.html#method-i-disconnect" name="method-i-disconnect" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Exert <a href="Behavior.html#method-i-disconnect"><code>disconnect</code></a> on the connection under test.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-disconnect_source')" id="l_method-i-disconnect_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actioncable/lib/action_cable/connection/test_case.rb#L196" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-disconnect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actioncable/lib/action_cable/connection/test_case.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disconnect</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Must be connected!&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">disconnect</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:disconnect</span>)
+  <span class="ruby-ivar">@connection</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

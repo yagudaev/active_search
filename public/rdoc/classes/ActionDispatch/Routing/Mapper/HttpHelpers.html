@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionDispatch::Routing::Mapper::HttpHelpers</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionDispatch", "Routing", "Mapper", "HttpHelpers"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionDispatch::Routing::Mapper::HttpHelpers">
+
+
+
+    <meta name="keywords" content="ActionDispatch::Routing::Mapper::HttpHelpers class">
+
+    <meta name="keywords" content="get, post, patch, put, delete, options">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionDispatch::Routing::Mapper::HttpHelpers
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../../files/actionpack/lib/action_dispatch/routing/mapper_rb.html">actionpack/lib/action_dispatch/routing/mapper.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>D</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-delete">delete</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>G</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-get">get</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>O</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-options">options</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>P</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-patch">patch</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-post">post</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-put">put</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+
+              <b>delete</b>(*args, &amp;block)
+
+            <a href="../../../../classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Define a route that only recognizes HTTP DELETE. For supported arguments, see <a href="Base.html#method-i-match">match</a></p>
+
+<pre><code>delete &#39;broccoli&#39;, to: &#39;food#broccoli&#39;
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/routing/mapper.rb#L749" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 749</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">map_method</span>(<span class="ruby-value">:delete</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-get">
+
+              <b>get</b>(*args, &amp;block)
+
+            <a href="../../../../classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-get" name="method-i-get" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Define a route that only recognizes HTTP GET. For supported arguments, see <a href="Base.html#method-i-match">match</a></p>
+
+<pre><code>get &#39;bacon&#39;, to: &#39;food#bacon&#39;
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/routing/mapper.rb#L717" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-get_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 717</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">map_method</span>(<span class="ruby-value">:get</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-options">
+
+              <b>options</b>(*args, &amp;block)
+
+            <a href="../../../../classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-options" name="method-i-options" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Define a route that only recognizes HTTP OPTIONS. For supported arguments, see <a href="Base.html#method-i-match">match</a></p>
+
+<pre><code>options &#39;carrots&#39;, to: &#39;food#carrots&#39;
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-options_source')" id="l_method-i-options_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/routing/mapper.rb#L757" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 757</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">options</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">map_method</span>(<span class="ruby-value">:options</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-patch">
+
+              <b>patch</b>(*args, &amp;block)
+
+            <a href="../../../../classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-patch" name="method-i-patch" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Define a route that only recognizes HTTP PATCH. For supported arguments, see <a href="Base.html#method-i-match">match</a></p>
+
+<pre><code>patch &#39;bacon&#39;, to: &#39;food#bacon&#39;
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-patch_source')" id="l_method-i-patch_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/routing/mapper.rb#L733" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-patch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 733</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">patch</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">map_method</span>(<span class="ruby-value">:patch</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-post">
+
+              <b>post</b>(*args, &amp;block)
+
+            <a href="../../../../classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-post" name="method-i-post" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Define a route that only recognizes HTTP POST. For supported arguments, see <a href="Base.html#method-i-match">match</a></p>
+
+<pre><code>post &#39;bacon&#39;, to: &#39;food#bacon&#39;
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-post_source')" id="l_method-i-post_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/routing/mapper.rb#L725" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-post_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 725</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">map_method</span>(<span class="ruby-value">:post</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-put">
+
+              <b>put</b>(*args, &amp;block)
+
+            <a href="../../../../classes/ActionDispatch/Routing/Mapper/HttpHelpers.html#method-i-put" name="method-i-put" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Define a route that only recognizes HTTP PUT. For supported arguments, see <a href="Base.html#method-i-match">match</a></p>
+
+<pre><code>put &#39;bacon&#39;, to: &#39;food#bacon&#39;
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-put_source')" id="l_method-i-put_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/routing/mapper.rb#L741" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-put_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/routing/mapper.rb, line 741</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">put</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">map_method</span>(<span class="ruby-value">:put</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

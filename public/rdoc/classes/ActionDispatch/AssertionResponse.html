@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionDispatch::AssertionResponse</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionDispatch", "AssertionResponse"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionDispatch::AssertionResponse">
+
+
+
+    <meta name="description" content="This is a class that abstracts away an asserted response. It purposely does not inherit from Response because it doesn&#39;t need it. That means it does not have headers or a body.">
+    <meta property="og:description" content="This is a class that abstracts away an asserted response. It purposely does not inherit from Response because it doesn&#39;t need it. That means it does not have headers or a body.">
+
+
+    <meta name="keywords" content="ActionDispatch::AssertionResponse class">
+
+    <meta name="keywords" content="new, code_and_name">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Class</span>
+            ActionDispatch::AssertionResponse
+
+                <span class="parent">&lt;
+
+                    <a href="../Object.html">Object</a>
+
+                </span>
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../files/actionpack/lib/action_dispatch/testing/assertion_response_rb.html">actionpack/lib/action_dispatch/testing/assertion_response.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+    <div class="description">
+
+<p>This is a class that abstracts away an asserted response. It purposely does not inherit from <a href="Response.html"><code>Response</code></a> because it doesn&#39;t need it. That means it does not have headers or a body.</p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>C</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-code_and_name">code_and_name</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>N</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>code</td>
+            <td class='attr-desc'></td>
+          </tr>
+
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>name</td>
+            <td class='attr-desc'></td>
+          </tr>
+
+      </table>
+
+
+
+    <!-- Methods -->
+
+      <div class="sectiontitle">Class Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+
+              <b>new</b>(code_or_name)
+
+            <a href="../../classes/ActionDispatch/AssertionResponse.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Accepts a specific response status code as an <a href="../Integer.html"><code>Integer</code></a> (404) or <a href="../String.html"><code>String</code></a> (&#39;404&#39;) or a response status range as a <a href="../Symbol.html"><code>Symbol</code></a> pseudo-code (:success, indicating any 200-299 status code).</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/assertion_response.rb#L20" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/assertion_response.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">code_or_name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">code_or_name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">code_or_name</span>
+    <span class="ruby-ivar">@code</span> = <span class="ruby-identifier">code_from_name</span>(<span class="ruby-identifier">code_or_name</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name_from_code</span>(<span class="ruby-identifier">code_or_name</span>)
+    <span class="ruby-ivar">@code</span> = <span class="ruby-identifier">code_or_name</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid response name: #{name}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@code</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid response code: #{code}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-code_and_name">
+
+              <b>code_and_name</b>()
+
+            <a href="../../classes/ActionDispatch/AssertionResponse.html#method-i-code_and_name" name="method-i-code_and_name" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-code_and_name_source')" id="l_method-i-code_and_name_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/assertion_response.rb#L33" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-code_and_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/assertion_response.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">code_and_name</span>
+  <span class="ruby-node">&quot;#{code}: #{name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

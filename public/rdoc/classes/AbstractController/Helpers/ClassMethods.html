@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AbstractController::Helpers::ClassMethods</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["AbstractController", "Helpers", "ClassMethods"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="AbstractController::Helpers::ClassMethods">
+
+
+
+    <meta name="keywords" content="AbstractController::Helpers::ClassMethods class">
+
+    <meta name="keywords" content="inherited, helper_method, helper, clear_helpers, modules_for_helpers, _helpers_for_modification">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            AbstractController::Helpers::ClassMethods
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/actionpack/lib/abstract_controller/helpers_rb.html">actionpack/lib/abstract_controller/helpers.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>#</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-_helpers_for_modification">_helpers_for_modification</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>C</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-clear_helpers">clear_helpers</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>H</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-helper">helper</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-helper_method">helper_method</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>I</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-inherited">inherited</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>M</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-modules_for_helpers">modules_for_helpers</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>_helpers</td>
+            <td class='attr-desc'></td>
+          </tr>
+
+      </table>
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-_helpers_for_modification">
+
+              <b>_helpers_for_modification</b>()
+
+            <a href="../../../classes/AbstractController/Helpers/ClassMethods.html#method-i-_helpers_for_modification" name="method-i-_helpers_for_modification" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-_helpers_for_modification_source')" id="l_method-i-_helpers_for_modification_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/abstract_controller/helpers.rb#L183" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-_helpers_for_modification_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_helpers_for_modification</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@_helpers</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_helpers</span> = <span class="ruby-identifier">define_helpers_module</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">_helpers</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">_helpers</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-clear_helpers">
+
+              <b>clear_helpers</b>()
+
+            <a href="../../../classes/AbstractController/Helpers/ClassMethods.html#method-i-clear_helpers" name="method-i-clear_helpers" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Clears up all existing helpers in this class, only keeping the helper with the same name as this class.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-clear_helpers_source')" id="l_method-i-clear_helpers_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/abstract_controller/helpers.rb#L157" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-clear_helpers_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear_helpers</span>
+  <span class="ruby-identifier">inherited_helper_methods</span> = <span class="ruby-identifier">_helper_methods</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_helpers</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_helper_methods</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">inherited_helper_methods</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">meth</span><span class="ruby-operator">|</span> <span class="ruby-identifier">helper_method</span> <span class="ruby-identifier">meth</span> }
+  <span class="ruby-identifier">default_helper_module!</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">anonymous?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-helper">
+
+              <b>helper</b>(*args, &amp;block)
+
+            <a href="../../../classes/AbstractController/Helpers/ClassMethods.html#method-i-helper" name="method-i-helper" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Includes the given modules in the template class.</p>
+
+<p>Modules can be specified in different ways. All of the following calls include <code>FooHelper</code>:</p>
+
+<pre><code># Module, recommended.
+helper FooHelper
+
+# String/symbol without the &quot;helper&quot; suffix, camel or snake case.
+helper &quot;Foo&quot;
+helper :Foo
+helper &quot;foo&quot;
+helper :foo
+</code></pre>
+
+<p>The last two assume that <code>&quot;foo&quot;.camelize</code> returns “Foo”.</p>
+
+<p>When strings or symbols are passed, the method finds the actual module object using +String#constantize+. Therefore, if the module has not been yet loaded, it has to be autoloadable, which is normally the case.</p>
+
+<p>Namespaces are supported. The following calls include <code>Foo::BarHelper</code>:</p>
+
+<pre><code># Module, recommended.
+helper Foo::BarHelper
+
+# String/symbol without the &quot;helper&quot; suffix, camel or snake case.
+helper &quot;Foo::Bar&quot;
+helper :&quot;Foo::Bar&quot;
+helper &quot;foo/bar&quot;
+helper :&quot;foo/bar&quot;
+</code></pre>
+
+<p>The last two assume that <code>&quot;foo/bar&quot;.camelize</code> returns “Foo::Bar”.</p>
+
+<p>The method accepts a block too. If present, the block is evaluated in the context of the controller helper module. This simple call makes the <code>wadus</code> method available in templates of the enclosing controller:</p>
+
+<pre><code>helper do
+  def wadus
+    &quot;wadus&quot;
+  end
+end
+</code></pre>
+
+<p>Furthermore, all the above styles can be mixed together:</p>
+
+<pre><code>helper FooHelper, &quot;woo&quot;, &quot;bar/baz&quot; do
+  def wadus
+    &quot;wadus&quot;
+  end
+end
+</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-helper_source')" id="l_method-i-helper_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/abstract_controller/helpers.rb#L146" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-helper_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helper</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">modules_for_helpers</span>(<span class="ruby-identifier">args</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">_helpers</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">mod</span>)
+    <span class="ruby-identifier">_helpers_for_modification</span>.<span class="ruby-identifier">include</span>(<span class="ruby-identifier">mod</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_helpers_for_modification</span>.<span class="ruby-identifier">module_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-helper_method">
+
+              <b>helper_method</b>(*methods)
+
+            <a href="../../../classes/AbstractController/Helpers/ClassMethods.html#method-i-helper_method" name="method-i-helper_method" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Declare a controller method as a helper. For example, the following makes the <code>current_user</code> and <code>logged_in?</code> controller methods available to the view:</p>
+
+<pre><code>class ApplicationController &lt; ActionController::Base
+  helper_method :current_user, :logged_in?
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user])
+  end
+
+  def logged_in?
+    current_user != nil
+  end
+end
+</code></pre>
+
+<p>In a view:</p>
+
+<pre><code>&lt;% if logged_in? -%&gt;Welcome, &lt;%= current_user.name %&gt;&lt;% end -%&gt;
+</code></pre>
+
+<h4 id="method-i-helper_method-label-Parameters">Parameters</h4>
+<ul><li>
+<p><code>method[, method]</code> - A name or names of a method on the controller to be made available on the view.</p>
+</li></ul>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-helper_method_source')" id="l_method-i-helper_method_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/abstract_controller/helpers.rb#L78" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-helper_method_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 78</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">helper_method</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+        <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">flatten!</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_helper_methods</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">methods</span>
+
+        <span class="ruby-identifier">location</span> = <span class="ruby-identifier">caller_locations</span>(<span class="ruby-value">1</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">first</span>
+        <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">lineno</span>
+
+        <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">_helpers_for_modification</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-identifier">&lt;&lt;-ruby_eval</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>
+<span class="ruby-value">            def #{method}(*args, &amp;block)                    # def current_user(*args, &amp;block)
+              controller.send(:&#39;#{method}&#39;, *args, &amp;block)  #   controller.send(:&#39;current_user&#39;, *args, &amp;block)
+            end                                             # end
+            ruby2_keywords(:&#39;#{method}&#39;) if respond_to?(:ruby2_keywords, true)
+</span><span class="ruby-identifier">          ruby_eval</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-inherited">
+
+              <b>inherited</b>(klass)
+
+            <a href="../../../classes/AbstractController/Helpers/ClassMethods.html#method-i-inherited" name="method-i-inherited" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>When a class is inherited, wrap its helper module in a new module. This ensures that the parent class&#39;s module can be changed independently of the child class&#39;s.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inherited_source')" id="l_method-i-inherited_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/abstract_controller/helpers.rb#L47" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-inherited_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inherited</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-comment"># Inherited from parent by default</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">_helpers</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">class_eval</span> { <span class="ruby-identifier">default_helper_module!</span> } <span class="ruby-keyword">unless</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">anonymous?</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-modules_for_helpers">
+
+              <b>modules_for_helpers</b>(modules_or_helper_prefixes)
+
+            <a href="../../../classes/AbstractController/Helpers/ClassMethods.html#method-i-modules_for_helpers" name="method-i-modules_for_helpers" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Given an array of values like the ones accepted by <code>helper</code>, this method returns an array with the corresponding modules, in the same order.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-modules_for_helpers_source')" id="l_method-i-modules_for_helpers_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/abstract_controller/helpers.rb#L168" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-modules_for_helpers_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/abstract_controller/helpers.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">modules_for_helpers</span>(<span class="ruby-identifier">modules_or_helper_prefixes</span>)
+  <span class="ruby-identifier">modules_or_helper_prefixes</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">map!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">module_or_helper_prefix</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">module_or_helper_prefix</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Module</span>
+      <span class="ruby-identifier">module_or_helper_prefix</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
+      <span class="ruby-identifier">helper_prefix</span> = <span class="ruby-identifier">module_or_helper_prefix</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">helper_prefix</span> = <span class="ruby-identifier">helper_prefix</span>.<span class="ruby-identifier">camelize</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">helper_prefix</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-regexp">/[A-Z]/</span>)
+      <span class="ruby-node">&quot;#{helper_prefix}Helper&quot;</span>.<span class="ruby-identifier">constantize</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;helper must be a String, Symbol, or Module&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

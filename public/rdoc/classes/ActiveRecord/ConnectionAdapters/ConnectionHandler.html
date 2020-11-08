@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActiveRecord::ConnectionAdapters::ConnectionHandler</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActiveRecord", "ConnectionAdapters", "ConnectionHandler"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActiveRecord::ConnectionAdapters::ConnectionHandler">
+
+
+
+    <meta name="description" content="ConnectionHandler is a collection of ConnectionPool objects. It is used for keeping separate connection pools that connect to different databases.">
+    <meta property="og:description" content="ConnectionHandler is a collection of ConnectionPool objects. It is used for keeping separate connection pools that connect to different databases.">
+
+
+    <meta name="keywords" content="ActiveRecord::ConnectionAdapters::ConnectionHandler class">
+
+    <meta name="keywords" content="new, while_preventing_writes, all_connection_pools, connection_pool_list, connection_pools, establish_connection, active_connections?, clear_active_connections!, clear_reloadable_connections!, clear_all_connections!, flush_idle_connections!, connected?, remove_connection, remove_connection_pool, retrieve_connection_pool">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Class</span>
+            ActiveRecord::ConnectionAdapters::ConnectionHandler
+
+                <span class="parent">&lt;
+
+                    <a href="../../Object.html">Object</a>
+
+                </span>
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/activerecord/lib/active_record/connection_adapters/abstract/connection_pool_rb.html">activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+    <div class="description">
+
+<p><a href="ConnectionHandler.html"><code>ConnectionHandler</code></a> is a collection of <a href="ConnectionPool.html"><code>ConnectionPool</code></a> objects. It is used for keeping separate connection pools that connect to different databases.</p>
+
+<p>For example, suppose that you have 5 models, with the following hierarchy:</p>
+
+<pre><code>class Author &lt; ActiveRecord::Base
+end
+
+class BankAccount &lt; ActiveRecord::Base
+end
+
+class Book &lt; ActiveRecord::Base
+  establish_connection :library_db
+end
+
+class ScaryBook &lt; Book
+end
+
+class GoodBook &lt; Book
+end
+</code></pre>
+
+<p>And a database.yml that looked like this:</p>
+
+<pre><code>development:
+  database: my_application
+  host: localhost
+
+library_db:
+  database: library
+  host: some.library.org
+</code></pre>
+
+<p>Your primary database in the development environment is “my_application” but the Book model connects to a separate database called “library_db” (this can even be a database on a different machine).</p>
+
+<p>Book, ScaryBook and GoodBook will all use the same connection pool to “library_db” while Author, BankAccount, and any other models you create will use the default connection pool to “my_application”.</p>
+
+<p>The various connection pools are managed by a single instance of <a href="ConnectionHandler.html"><code>ConnectionHandler</code></a> accessible via <a href="../Core.html#method-c-connection_handler"><code>ActiveRecord::Base.connection_handler</code></a>. All Active Record models use this handler to determine the connection pool that they should use.</p>
+
+<p>The <a href="ConnectionHandler.html"><code>ConnectionHandler</code></a> class is not coupled with the Active models, as it has no knowledge about the model. The model needs to pass a connection specification name to the handler, in order to look up the correct connection pool.</p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>A</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-active_connections-3F">active_connections?</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-all_connection_pools">all_connection_pools</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>C</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-clear_active_connections-21">clear_active_connections!</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-clear_all_connections-21">clear_all_connections!</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-clear_reloadable_connections-21">clear_reloadable_connections!</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-connected-3F">connected?</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-connection_pool_list">connection_pool_list</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-connection_pools">connection_pools</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>E</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-establish_connection">establish_connection</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>F</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-flush_idle_connections-21">flush_idle_connections!</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>N</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>R</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-remove_connection">remove_connection</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-remove_connection_pool">remove_connection_pool</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-retrieve_connection_pool">retrieve_connection_pool</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>W</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-while_preventing_writes">while_preventing_writes</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+      <div class="sectiontitle">Class Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+
+              <b>new</b>()
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L987" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 987</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-comment"># These caches are keyed by pool_config.connection_specification_name (PoolConfig#connection_specification_name).</span>
+  <span class="ruby-ivar">@owner_to_pool_manager</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">Map</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">initial_capacity:</span> <span class="ruby-value">2</span>)
+
+  <span class="ruby-comment"># Backup finalizer: if the forked child skipped Kernel#fork the early discard has not occurred</span>
+  <span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">define_finalizer</span> <span class="ruby-keyword">self</span>, <span class="ruby-constant">FINALIZER</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-active_connections-3F">
+
+              <b>active_connections?</b>(role = ActiveRecord::Base.current_role)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-active_connections-3F" name="method-i-active_connections-3F" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Returns true if there are any active connections among the connection pools that the <a href="ConnectionHandler.html"><code>ConnectionHandler</code></a> is managing.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-active_connections-3F_source')" id="l_method-i-active_connections-3F_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1073" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-active_connections-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1073</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">active_connections?</span>(<span class="ruby-identifier">role</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>)
+  <span class="ruby-identifier">connection_pool_list</span>(<span class="ruby-identifier">role</span>).<span class="ruby-identifier">any?</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:active_connection?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-all_connection_pools">
+
+              <b>all_connection_pools</b>()
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-all_connection_pools" name="method-i-all_connection_pools" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-all_connection_pools_source')" id="l_method-i-all_connection_pools_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1029" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-all_connection_pools_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1029</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">all_connection_pools</span>
+  <span class="ruby-identifier">owner_to_pool_manager</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">flat_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">pool_configs</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:pool</span>) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-clear_active_connections-21">
+
+              <b>clear_active_connections!</b>(role = ActiveRecord::Base.current_role)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-clear_active_connections-21" name="method-i-clear_active_connections-21" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Returns any connections in use by the current thread back to the pool, and also returns connections to the pool cached by threads that are no longer alive.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-clear_active_connections-21_source')" id="l_method-i-clear_active_connections-21_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1080" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-clear_active_connections-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1080</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear_active_connections!</span>(<span class="ruby-identifier">role</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>)
+  <span class="ruby-identifier">connection_pool_list</span>(<span class="ruby-identifier">role</span>).<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:release_connection</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-clear_all_connections-21">
+
+              <b>clear_all_connections!</b>(role = ActiveRecord::Base.current_role)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-clear_all_connections-21" name="method-i-clear_all_connections-21" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-clear_all_connections-21_source')" id="l_method-i-clear_all_connections-21_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1091" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-clear_all_connections-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1091</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear_all_connections!</span>(<span class="ruby-identifier">role</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>)
+  <span class="ruby-identifier">connection_pool_list</span>(<span class="ruby-identifier">role</span>).<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:disconnect!</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-clear_reloadable_connections-21">
+
+              <b>clear_reloadable_connections!</b>(role = ActiveRecord::Base.current_role)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-clear_reloadable_connections-21" name="method-i-clear_reloadable_connections-21" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Clears the cache which maps classes.</p>
+
+<p>See <a href="ConnectionPool.html#method-i-clear_reloadable_connections-21"><code>ConnectionPool#clear_reloadable_connections!</code></a> for details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-clear_reloadable_connections-21_source')" id="l_method-i-clear_reloadable_connections-21_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1087" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-clear_reloadable_connections-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1087</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear_reloadable_connections!</span>(<span class="ruby-identifier">role</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>)
+  <span class="ruby-identifier">connection_pool_list</span>(<span class="ruby-identifier">role</span>).<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:clear_reloadable_connections!</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-connected-3F">
+
+              <b>connected?</b>(spec_name, role: ActiveRecord::Base.current_role, shard: ActiveRecord::Base.current_shard)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-connected-3F" name="method-i-connected-3F" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Returns true if a connection that&#39;s accessible to this class has already been opened.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-connected-3F_source')" id="l_method-i-connected-3F_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1128" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-connected-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connected?</span>(<span class="ruby-identifier">spec_name</span>, <span class="ruby-value">role:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>, <span class="ruby-value">shard:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_shard</span>)
+  <span class="ruby-identifier">pool</span> = <span class="ruby-identifier">retrieve_connection_pool</span>(<span class="ruby-identifier">spec_name</span>, <span class="ruby-value">role:</span> <span class="ruby-identifier">role</span>, <span class="ruby-value">shard:</span> <span class="ruby-identifier">shard</span>)
+  <span class="ruby-identifier">pool</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">pool</span>.<span class="ruby-identifier">connected?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-connection_pool_list">
+
+              <b>connection_pool_list</b>(role = ActiveRecord::Base.current_role)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-connection_pool_list" name="method-i-connection_pool_list" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+            <div class="aka">
+              Also aliased as: <a href="ConnectionHandler.html#method-i-connection_pools">connection_pools</a>
+            </div>
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-connection_pool_list_source')" id="l_method-i-connection_pool_list_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1033" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-connection_pool_list_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1033</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connection_pool_list</span>(<span class="ruby-identifier">role</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>)
+  <span class="ruby-identifier">owner_to_pool_manager</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">flat_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">pool_configs</span>(<span class="ruby-identifier">role</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:pool</span>) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-connection_pools">
+
+              <b>connection_pools</b>(role = ActiveRecord::Base.current_role)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-connection_pools" name="method-i-connection_pools" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+            <div class="aka">
+              Alias for: <a href="ConnectionHandler.html#method-i-connection_pool_list">connection_pool_list</a>
+            </div>
+
+
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-establish_connection">
+
+              <b>establish_connection</b>(config, owner_name: Base.name, role: ActiveRecord::Base.current_role, shard: Base.current_shard)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-establish_connection" name="method-i-establish_connection" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-establish_connection_source')" id="l_method-i-establish_connection_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1038" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-establish_connection_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1038</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">establish_connection</span>(<span class="ruby-identifier">config</span>, <span class="ruby-value">owner_name:</span> <span class="ruby-constant">Base</span>.<span class="ruby-identifier">name</span>, <span class="ruby-value">role:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>, <span class="ruby-value">shard:</span> <span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_shard</span>)
+  <span class="ruby-identifier">owner_name</span> = <span class="ruby-identifier">config</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+
+  <span class="ruby-identifier">pool_config</span> = <span class="ruby-identifier">resolve_pool_config</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">owner_name</span>)
+  <span class="ruby-identifier">db_config</span> = <span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">db_config</span>
+
+  <span class="ruby-comment"># Protects the connection named `ActiveRecord::Base` from being removed</span>
+  <span class="ruby-comment"># if the user calls `establish_connection :primary`.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner_to_pool_manager</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">connection_specification_name</span>)
+    <span class="ruby-identifier">remove_connection_pool</span>(<span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">connection_specification_name</span>, <span class="ruby-value">role:</span> <span class="ruby-identifier">role</span>, <span class="ruby-value">shard:</span> <span class="ruby-identifier">shard</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">message_bus</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">instrumenter</span>
+  <span class="ruby-identifier">payload</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pool_config</span>
+    <span class="ruby-identifier">payload</span>[<span class="ruby-value">:spec_name</span>] = <span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">connection_specification_name</span>
+    <span class="ruby-identifier">payload</span>[<span class="ruby-value">:shard</span>] = <span class="ruby-identifier">shard</span>
+    <span class="ruby-identifier">payload</span>[<span class="ruby-value">:config</span>] = <span class="ruby-identifier">db_config</span>.<span class="ruby-identifier">configuration_hash</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">legacy_connection_handling</span>
+    <span class="ruby-identifier">owner_to_pool_manager</span>[<span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">connection_specification_name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">LegacyPoolManager</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">owner_to_pool_manager</span>[<span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">connection_specification_name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">PoolManager</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">pool_manager</span> = <span class="ruby-identifier">get_pool_manager</span>(<span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">connection_specification_name</span>)
+  <span class="ruby-identifier">pool_manager</span>.<span class="ruby-identifier">set_pool_config</span>(<span class="ruby-identifier">role</span>, <span class="ruby-identifier">shard</span>, <span class="ruby-identifier">pool_config</span>)
+
+  <span class="ruby-identifier">message_bus</span>.<span class="ruby-identifier">instrument</span>(<span class="ruby-string">&quot;!connection.active_record&quot;</span>, <span class="ruby-identifier">payload</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">pool</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-flush_idle_connections-21">
+
+              <b>flush_idle_connections!</b>(role = ActiveRecord::Base.current_role)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-flush_idle_connections-21" name="method-i-flush_idle_connections-21" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Disconnects all currently idle connections.</p>
+
+<p>See <a href="ConnectionPool.html#method-i-flush-21"><code>ConnectionPool#flush!</code></a> for details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-flush_idle_connections-21_source')" id="l_method-i-flush_idle_connections-21_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1098" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-flush_idle_connections-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1098</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">flush_idle_connections!</span>(<span class="ruby-identifier">role</span> = <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>)
+  <span class="ruby-identifier">connection_pool_list</span>(<span class="ruby-identifier">role</span>).<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:flush!</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_connection">
+
+              <b>remove_connection</b>(owner, role: ActiveRecord::Base.current_role, shard: ActiveRecord::Base.current_shard)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-remove_connection" name="method-i-remove_connection" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Remove the connection for this class. This will close the active connection and the defined connection (if they exist). The result can be used as an argument for <a href="ConnectionHandler.html#method-i-establish_connection"><code>establish_connection</code></a>, for easily re-establishing the connection.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-remove_connection_source')" id="l_method-i-remove_connection_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1137" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-remove_connection_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_connection</span>(<span class="ruby-identifier">owner</span>, <span class="ruby-value">role:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>, <span class="ruby-value">shard:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_shard</span>)
+  <span class="ruby-identifier">remove_connection_pool</span>(<span class="ruby-identifier">owner</span>, <span class="ruby-value">role:</span> <span class="ruby-identifier">role</span>, <span class="ruby-value">shard:</span> <span class="ruby-identifier">shard</span>)&amp;.<span class="ruby-identifier">configuration_hash</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_connection_pool">
+
+              <b>remove_connection_pool</b>(owner, role: ActiveRecord::Base.current_role, shard: ActiveRecord::Base.current_shard)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-remove_connection_pool" name="method-i-remove_connection_pool" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-remove_connection_pool_source')" id="l_method-i-remove_connection_pool_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1142" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-remove_connection_pool_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_connection_pool</span>(<span class="ruby-identifier">owner</span>, <span class="ruby-value">role:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>, <span class="ruby-value">shard:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_shard</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pool_manager</span> = <span class="ruby-identifier">get_pool_manager</span>(<span class="ruby-identifier">owner</span>)
+    <span class="ruby-identifier">pool_config</span> = <span class="ruby-identifier">pool_manager</span>.<span class="ruby-identifier">remove_pool_config</span>(<span class="ruby-identifier">role</span>, <span class="ruby-identifier">shard</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pool_config</span>
+      <span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">disconnect!</span>
+      <span class="ruby-identifier">pool_config</span>.<span class="ruby-identifier">db_config</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-retrieve_connection_pool">
+
+              <b>retrieve_connection_pool</b>(owner, role: ActiveRecord::Base.current_role, shard: ActiveRecord::Base.current_shard)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-retrieve_connection_pool" name="method-i-retrieve_connection_pool" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Retrieving the connection pool happens a lot, so we cache it in @owner_to_pool_manager. This makes retrieving the connection pool O(1) once the process is warm. When a connection is established or removed, we invalidate the cache.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-retrieve_connection_pool_source')" id="l_method-i-retrieve_connection_pool_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1156" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-retrieve_connection_pool_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">retrieve_connection_pool</span>(<span class="ruby-identifier">owner</span>, <span class="ruby-value">role:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_role</span>, <span class="ruby-value">shard:</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">current_shard</span>)
+  <span class="ruby-identifier">pool_config</span> = <span class="ruby-identifier">get_pool_manager</span>(<span class="ruby-identifier">owner</span>)&amp;.<span class="ruby-identifier">get_pool_config</span>(<span class="ruby-identifier">role</span>, <span class="ruby-identifier">shard</span>)
+  <span class="ruby-identifier">pool_config</span>&amp;.<span class="ruby-identifier">pool</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-while_preventing_writes">
+
+              <b>while_preventing_writes</b>(enabled = true)
+
+            <a href="../../../classes/ActiveRecord/ConnectionAdapters/ConnectionHandler.html#method-i-while_preventing_writes" name="method-i-while_preventing_writes" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Prevent writing to the database regardless of role.</p>
+
+<p>In some cases you may want to prevent writes to the database even if you are on a database that can write. `while_preventing_writes` will prevent writes to the database for the duration of the block.</p>
+
+<p>This method does not provide the same protection as a readonly user and is meant to be a safeguard against accidental writes.</p>
+
+<p>See `READ_QUERY` for the queries that are blocked by this method.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-while_preventing_writes_source')" id="l_method-i-while_preventing_writes_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb#L1014" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-while_preventing_writes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb, line 1014</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">while_preventing_writes</span>(<span class="ruby-identifier">enabled</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">legacy_connection_handling</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-string">&quot;`while_preventing_writes` is only available on the connection_handler with legacy_connection_handling&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">original</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prevent_writes</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prevent_writes</span>, <span class="ruby-identifier">enabled</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prevent_writes</span> = <span class="ruby-identifier">original</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

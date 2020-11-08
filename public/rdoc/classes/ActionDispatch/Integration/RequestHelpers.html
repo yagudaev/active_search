@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionDispatch::Integration::RequestHelpers</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionDispatch", "Integration", "RequestHelpers"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionDispatch::Integration::RequestHelpers">
+
+
+
+    <meta name="keywords" content="ActionDispatch::Integration::RequestHelpers class">
+
+    <meta name="keywords" content="get, post, patch, put, delete, head, options, follow_redirect!">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionDispatch::Integration::RequestHelpers
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/actionpack/lib/action_dispatch/testing/integration_rb.html">actionpack/lib/action_dispatch/testing/integration.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>D</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-delete">delete</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>F</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-follow_redirect-21">follow_redirect!</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>G</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-get">get</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>H</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-head">head</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>O</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-options">options</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>P</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-patch">patch</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-post">post</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-put">put</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+
+              <b>delete</b>(path, **args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs a DELETE request with the given parameters. See <a href="Session.html#method-i-process"><code>ActionDispatch::Integration::Session#process</code></a> for more details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L39" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">process</span>(<span class="ruby-value">:delete</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-follow_redirect-21">
+
+              <b>follow_redirect!</b>(**args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-follow_redirect-21" name="method-i-follow_redirect-21" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Follow a single redirect response. If the last response was not a redirect, an exception will be raised. Otherwise, the redirect is performed on the location header. If the redirection is a 307 or 308 redirect, the same HTTP verb will be used when redirecting, otherwise a GET request will be performed. Any arguments are passed to the underlying request.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-follow_redirect-21_source')" id="l_method-i-follow_redirect-21_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L61" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-follow_redirect-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">follow_redirect!</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;not a redirect! #{status} #{status_message}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">redirect?</span>
+
+  <span class="ruby-identifier">method</span> =
+    <span class="ruby-keyword">if</span> [<span class="ruby-value">307</span>, <span class="ruby-value">308</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>)
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">method</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-value">:get</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">location</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-get">
+
+              <b>get</b>(path, **args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-get" name="method-i-get" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs a GET request with the given parameters. See <a href="Session.html#method-i-process"><code>ActionDispatch::Integration::Session#process</code></a> for more details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L15" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-get_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">process</span>(<span class="ruby-value">:get</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-head">
+
+              <b>head</b>(path, **args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-head" name="method-i-head" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs a HEAD request with the given parameters. See <a href="Session.html#method-i-process"><code>ActionDispatch::Integration::Session#process</code></a> for more details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-head_source')" id="l_method-i-head_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L45" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-head_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">head</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">process</span>(<span class="ruby-value">:head</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-options">
+
+              <b>options</b>(path, **args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-options" name="method-i-options" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs an OPTIONS request with the given parameters. See <a href="Session.html#method-i-process"><code>ActionDispatch::Integration::Session#process</code></a> for more details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-options_source')" id="l_method-i-options_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L51" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">options</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">process</span>(<span class="ruby-value">:options</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-patch">
+
+              <b>patch</b>(path, **args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-patch" name="method-i-patch" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs a PATCH request with the given parameters. See <a href="Session.html#method-i-process"><code>ActionDispatch::Integration::Session#process</code></a> for more details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-patch_source')" id="l_method-i-patch_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L27" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-patch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">patch</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">process</span>(<span class="ruby-value">:patch</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-post">
+
+              <b>post</b>(path, **args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-post" name="method-i-post" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs a POST request with the given parameters. See <a href="Session.html#method-i-process"><code>ActionDispatch::Integration::Session#process</code></a> for more details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-post_source')" id="l_method-i-post_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L21" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-post_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">process</span>(<span class="ruby-value">:post</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-put">
+
+              <b>put</b>(path, **args)
+
+            <a href="../../../classes/ActionDispatch/Integration/RequestHelpers.html#method-i-put" name="method-i-put" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Performs a PUT request with the given parameters. See <a href="Session.html#method-i-process"><code>ActionDispatch::Integration::Session#process</code></a> for more details.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-put_source')" id="l_method-i-put_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionpack/lib/action_dispatch/testing/integration.rb#L33" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-put_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionpack/lib/action_dispatch/testing/integration.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">put</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">process</span>(<span class="ruby-value">:put</span>, <span class="ruby-identifier">path</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

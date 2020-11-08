@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActionMailbox::InboundEmail::MessageId</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActionMailbox", "InboundEmail", "MessageId"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActionMailbox::InboundEmail::MessageId">
+
+
+
+    <meta name="description" content="The Message-ID as specified by rfc822 is supposed to be a unique identifier for that individual email.">
+    <meta property="og:description" content="The Message-ID as specified by rfc822 is supposed to be a unique identifier for that individual email.">
+
+
+    <meta name="keywords" content="ActionMailbox::InboundEmail::MessageId class">
+
+    <meta name="keywords" content="create_and_extract_message_id!, extract_message_id, generate_missing_message_id">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActionMailbox::InboundEmail::MessageId
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/actionmailbox/app/models/action_mailbox/inbound_email/message_id_rb.html">actionmailbox/app/models/action_mailbox/inbound_email/message_id.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+    <div class="description">
+
+<p>The <code>Message-ID</code> as specified by rfc822 is supposed to be a unique identifier for that individual email. That makes it an ideal tracking token for debugging and forensics, just like <code>X-Request-Id</code> does for web request.</p>
+
+<p>If an inbound email does not, against the rfc822 mandate, specify a Message-ID, one will be generated using the approach from <code>Mail::MessageIdField</code>.</p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>C</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-create_and_extract_message_id-21">create_and_extract_message_id!</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>E</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-extract_message_id">extract_message_id</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>G</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-generate_missing_message_id">generate_missing_message_id</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-create_and_extract_message_id-21">
+
+              <b>create_and_extract_message_id!</b>(source, **options)
+
+            <a href="../../../classes/ActionMailbox/InboundEmail/MessageId.html#method-i-create_and_extract_message_id-21" name="method-i-create_and_extract_message_id-21" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Create a new <code>InboundEmail</code> from the raw <code>source</code> of the email, which is uploaded as an Active Storage attachment called <code>raw_email</code>. Before the upload, extract the Message-ID from the <code>source</code> and set it as an attribute on the new <code>InboundEmail</code>.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-create_and_extract_message_id-21_source')" id="l_method-i-create_and_extract_message_id-21_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailbox/app/models/action_mailbox/inbound_email/message_id.rb#L16" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-create_and_extract_message_id-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailbox/app/models/action_mailbox/inbound_email/message_id.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_and_extract_message_id!</span>(<span class="ruby-identifier">source</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">message_checksum</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">message_id</span> = <span class="ruby-identifier">extract_message_id</span>(<span class="ruby-identifier">source</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">generate_missing_message_id</span>(<span class="ruby-identifier">message_checksum</span>)
+
+  <span class="ruby-identifier">create!</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">message_id:</span> <span class="ruby-identifier">message_id</span>, <span class="ruby-value">message_checksum:</span> <span class="ruby-identifier">message_checksum</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">inbound_email</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">inbound_email</span>.<span class="ruby-identifier">raw_email</span>.<span class="ruby-identifier">attach</span> <span class="ruby-value">io:</span> <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>), <span class="ruby-value">filename:</span> <span class="ruby-string">&quot;message.eml&quot;</span>, <span class="ruby-value">content_type:</span> <span class="ruby-string">&quot;message/rfc822&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotUnique</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_message_id">
+
+              <b>extract_message_id</b>(source)
+
+            <a href="../../../classes/ActionMailbox/InboundEmail/MessageId.html#method-i-extract_message_id" name="method-i-extract_message_id" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-extract_message_id_source')" id="l_method-i-extract_message_id_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailbox/app/models/action_mailbox/inbound_email/message_id.rb#L28" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-extract_message_id_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailbox/app/models/action_mailbox/inbound_email/message_id.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_message_id</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-constant">Mail</span>.<span class="ruby-identifier">from_source</span>(<span class="ruby-identifier">source</span>).<span class="ruby-identifier">message_id</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-generate_missing_message_id">
+
+              <b>generate_missing_message_id</b>(message_checksum)
+
+            <a href="../../../classes/ActionMailbox/InboundEmail/MessageId.html#method-i-generate_missing_message_id" name="method-i-generate_missing_message_id" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-generate_missing_message_id_source')" id="l_method-i-generate_missing_message_id_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/actionmailbox/app/models/action_mailbox/inbound_email/message_id.rb#L32" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-generate_missing_message_id_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File actionmailbox/app/models/action_mailbox/inbound_email/message_id.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_missing_message_id</span>(<span class="ruby-identifier">message_checksum</span>)
+  <span class="ruby-constant">Mail</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageIdField</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;&lt;#{message_checksum}@#{::Socket.gethostname}.mail&gt;&quot;</span>).<span class="ruby-identifier">message_id</span>.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message_id</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Message-ID couldn&#39;t be parsed or is missing. Generated a new Message-ID: #{message_id}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

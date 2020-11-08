@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActiveStorage::Preview</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActiveStorage", "Preview"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActiveStorage::Preview">
+
+
+
+    <meta name="description" content="Some non-image blobs can be previewed: that is, they can be presented as images.">
+    <meta property="og:description" content="Some non-image blobs can be previewed: that is, they can be presented as images.">
+
+
+    <meta name="keywords" content="ActiveStorage::Preview class">
+
+    <meta name="keywords" content="new, processed, image, url, service_url, key, download">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Class</span>
+            ActiveStorage::Preview
+
+                <span class="parent">&lt;
+
+                    <a href="../Object.html">Object</a>
+
+                </span>
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../files/activestorage/app/models/active_storage/preview_rb.html">activestorage/app/models/active_storage/preview.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+    <div class="description">
+
+<p>Some non-image blobs can be previewed: that is, they can be presented as images. A video blob can be previewed by extracting its first frame, and a PDF blob can be previewed by extracting its first page.</p>
+
+<p>A previewer extracts a preview image from a blob. Active Storage provides previewers for videos and PDFs. <a href="Previewer/VideoPreviewer.html"><code>ActiveStorage::Previewer::VideoPreviewer</code></a> is used for videos whereas <a href="Previewer/PopplerPDFPreviewer.html"><code>ActiveStorage::Previewer::PopplerPDFPreviewer</code></a> and <a href="Previewer/MuPDFPreviewer.html"><code>ActiveStorage::Previewer::MuPDFPreviewer</code></a> are used for PDFs. Build custom previewers by subclassing <a href="Previewer.html"><code>ActiveStorage::Previewer</code></a> and implementing the requisite methods. Consult the <a href="Previewer.html"><code>ActiveStorage::Previewer</code></a> documentation for more details on what&#39;s required of previewers.</p>
+
+<p>To choose the previewer for a blob, Active Storage calls <code>accept?</code> on each registered previewer in order. It uses the first previewer for which <code>accept?</code> returns true when given the blob. In a Rails application, add or remove previewers by manipulating <code>Rails.application.config.active_storage.previewers</code> in an initializer:</p>
+
+<pre><code>Rails.application.config.active_storage.previewers
+# =&gt; [ ActiveStorage::Previewer::PopplerPDFPreviewer, ActiveStorage::Previewer::MuPDFPreviewer, ActiveStorage::Previewer::VideoPreviewer ]
+
+# Add a custom previewer for Microsoft Office documents:
+Rails.application.config.active_storage.previewers &lt;&lt; DOCXPreviewer
+# =&gt; [ ActiveStorage::Previewer::PopplerPDFPreviewer, ActiveStorage::Previewer::MuPDFPreviewer, ActiveStorage::Previewer::VideoPreviewer, DOCXPreviewer ]
+</code></pre>
+
+<p>Outside of a Rails application, modify <code>ActiveStorage.previewers</code> instead.</p>
+
+<p>The built-in previewers rely on third-party system libraries. Specifically, the built-in video previewer requires <a href="https://www.ffmpeg.org">FFmpeg</a>. Two PDF previewers are provided: one requires <a href="https://poppler.freedesktop.org">Poppler</a>, and the other requires <a href="https://mupdf.com">muPDF</a> (version 1.8 or newer). To preview PDFs, install either Poppler or muPDF.</p>
+
+<p>These libraries are not provided by Rails. You must install them yourself to use the built-in previewers. Before you install and use third-party software, make sure you understand the licensing implications of doing so.</p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Preview/UnprocessedError.html">ActiveStorage::Preview::UnprocessedError</a>
+        </li>
+
+    </ul>
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>D</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-download">download</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>I</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-image">image</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>K</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-key">key</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>N</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>P</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-processed">processed</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>S</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-service_url">service_url</a>
+              </li>
+
+          </ul>
+        </dd>
+
+        <dt>U</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-url">url</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>blob</td>
+            <td class='attr-desc'></td>
+          </tr>
+
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>variation</td>
+            <td class='attr-desc'></td>
+          </tr>
+
+      </table>
+
+
+
+    <!-- Methods -->
+
+      <div class="sectiontitle">Class Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+
+              <b>new</b>(blob, variation_or_variation_key)
+
+            <a href="../../classes/ActiveStorage/Preview.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/preview.rb#L36" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">blob</span>, <span class="ruby-identifier">variation_or_variation_key</span>)
+  <span class="ruby-ivar">@blob</span>, <span class="ruby-ivar">@variation</span> = <span class="ruby-identifier">blob</span>, <span class="ruby-constant">ActiveStorage</span><span class="ruby-operator">::</span><span class="ruby-constant">Variation</span>.<span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">variation_or_variation_key</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-download">
+
+              <b>download</b>(&amp;block)
+
+            <a href="../../classes/ActiveStorage/Preview.html#method-i-download" name="method-i-download" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-download_source')" id="l_method-i-download_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/preview.rb#L81" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-download_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">processed?</span>
+    <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">download</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnprocessedError</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-image">
+
+              <b>image</b>()
+
+            <a href="../../classes/ActiveStorage/Preview.html#method-i-image" name="method-i-image" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Returns the blob&#39;s attached preview image.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-image_source')" id="l_method-i-image_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/preview.rb#L52" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-image_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">image</span>
+  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">preview_image</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-key">
+
+              <b>key</b>()
+
+            <a href="../../classes/ActiveStorage/Preview.html#method-i-key" name="method-i-key" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Returns a combination key of the blob and the variation that together identifies a specific variant.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-key_source')" id="l_method-i-key_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/preview.rb#L73" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">key</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">processed?</span>
+    <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnprocessedError</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-processed">
+
+              <b>processed</b>()
+
+            <a href="../../classes/ActiveStorage/Preview.html#method-i-processed" name="method-i-processed" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Processes the preview if it has not been processed yet. Returns the receiving <a href="Preview.html"><code>Preview</code></a> instance for convenience:</p>
+
+<pre><code>blob.preview(resize_to_limit: [100, 100]).processed.url
+</code></pre>
+
+<p>Processing a preview generates an image from its blob and attaches the preview image to the blob. Because the preview image is stored with the blob, it is only generated once.</p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-processed_source')" id="l_method-i-processed_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/preview.rb#L46" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-processed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">processed</span>
+  <span class="ruby-identifier">process</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">processed?</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-service_url">
+
+              <b>service_url</b>(**options)
+
+            <a href="../../classes/ActiveStorage/Preview.html#method-i-service_url" name="method-i-service_url" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+            <div class="aka">
+              Alias for: <a href="Preview.html#method-i-url">url</a>
+            </div>
+
+
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-url">
+
+              <b>url</b>(**options)
+
+            <a href="../../classes/ActiveStorage/Preview.html#method-i-url" name="method-i-url" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+              <p>Returns the URL of the preview&#39;s variant on the service. Raises <a href="Preview/UnprocessedError.html"><code>ActiveStorage::Preview::UnprocessedError</code></a> if the preview has not been processed yet.</p>
+
+<p>This method synchronously processes a variant of the preview image, so do not call it in views. Instead, generate a stable URL that redirects to the URL returned by this method.</p>
+            </div>
+
+
+
+            <div class="aka">
+              Also aliased as: <a href="Preview.html#method-i-service_url">service_url</a>
+            </div>
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-url_source')" id="l_method-i-url_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/preview.rb#L61" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/preview.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">url</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">processed?</span>
+    <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">url</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnprocessedError</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>

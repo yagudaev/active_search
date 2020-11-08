@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActiveStorage::Blob::Identifiable</title>
+    <meta charset="UTF-8" />
+
+<link rel="stylesheet" href="/rdoc/css/reset.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/panel.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/main.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<link rel="stylesheet" href="/rdoc/css/github.css" type="text/css" media="screen" data-turbolinks-track="reload" />
+<script src="/rdoc/js/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/main.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/highlight.pack.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/turbolinks.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/search_index.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searcher.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/panel/tree.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script src="/rdoc/js/searchdoc.js" type="text/javascript" charset="utf-8" data-turbolinks-track="reload"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("turbolinks:load", function() {
+  // Only initialize panel if not yet initialized
+  if(!$('#panel .tree ul li').length) {
+    $('#links').hide();
+    var panel = new Searchdoc.Panel($('#panel'), search_data, tree, '/');
+    $('#search').focus();
+    var s = window.location.search.match(/\?q=([^&]+)/);
+    if (s) {
+      s = decodeURIComponent(s[1]).replace(/\+/g, ' ');
+      if (s.length > 0) {
+        $('#search').val(s);
+        panel.search(s, true);
+      }
+    }
+    panel.toggle(["ActiveStorage", "Blob", "Identifiable"]);
+  }
+})
+</script>
+
+
+
+    <meta property="og:title" value="ActiveStorage::Blob::Identifiable">
+
+
+
+    <meta name="keywords" content="ActiveStorage::Blob::Identifiable class">
+
+    <meta name="keywords" content="identify, identify_without_saving, identified?">
+
+</head>
+
+<body>
+
+    <div class="panel panel_tree" id="panel" data-turbolinks-permanent>
+  <div class="header">
+    <input type="text" placeholder="Search for a class, method, ..." autosave="searchdoc" results="10" id="search" autocomplete="off" />
+  </div>
+  <div class="tree">
+    <ul>
+    </ul>
+  </div>
+  <div class="result">
+    <ul>
+    </ul>
+  </div>
+  <a href="/rdoc/panel/links.html" id="links">index</a>
+</div>
+
+
+    <div class="banner">
+
+            <span>Ruby on Rails 6.1.0.rc1</span><br />
+
+        <h1>
+            <span class="type">Module</span>
+            ActiveStorage::Blob::Identifiable
+
+        </h1>
+        <ul class="files">
+
+            <li><a href="../../../files/activestorage/app/models/active_storage/blob/identifiable_rb.html">activestorage/app/models/active_storage/blob/identifiable.rb</a></li>
+
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+
+        <dt>I</dt>
+        <dd>
+          <ul>
+
+
+              <li>
+                <a href="#method-i-identified-3F">identified?</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-identify">identify</a>,
+              </li>
+
+
+              <li>
+                <a href="#method-i-identify_without_saving">identify_without_saving</a>
+              </li>
+
+          </ul>
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Methods -->
+
+
+      <div class="sectiontitle">Instance Public methods</div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-identified-3F">
+
+              <b>identified?</b>()
+
+            <a href="../../../classes/ActiveStorage/Blob/Identifiable.html#method-i-identified-3F" name="method-i-identified-3F" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-identified-3F_source')" id="l_method-i-identified-3F_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/blob/identifiable.rb#L16" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-identified-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/blob/identifiable.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">identified?</span>
+  <span class="ruby-identifier">identified</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-identify">
+
+              <b>identify</b>()
+
+            <a href="../../../classes/ActiveStorage/Blob/Identifiable.html#method-i-identify" name="method-i-identify" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-identify_source')" id="l_method-i-identify_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/blob/identifiable.rb#L4" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-identify_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/blob/identifiable.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">identify</span>
+  <span class="ruby-identifier">identify_without_saving</span>
+  <span class="ruby-identifier">save!</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="method">
+          <div class="title method-title" id="method-i-identify_without_saving">
+
+              <b>identify_without_saving</b>()
+
+            <a href="../../../classes/ActiveStorage/Blob/Identifiable.html#method-i-identify_without_saving" name="method-i-identify_without_saving" class="permalink">Link</a>
+          </div>
+
+
+            <div class="description">
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="sourcecode">
+
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-identify_without_saving_source')" id="l_method-i-identify_without_saving_source">show</a>
+
+                  | <a href="https://github.com/rails/rails/blob/3baf25e1192df36db99162884b5c115db04dd0a3/activestorage/app/models/active_storage/blob/identifiable.rb#L9" target="_blank" class="github_url">on GitHub</a>
+
+              </p>
+              <div id="method-i-identify_without_saving_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File activestorage/app/models/active_storage/blob/identifiable.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">identify_without_saving</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">identified?</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content_type</span> = <span class="ruby-identifier">identify_content_type</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">identified</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+</div>
+
+    </div>
+  </body>
+</html>
