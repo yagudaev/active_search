@@ -6,7 +6,7 @@
   <%= text_field_tag :q, params[:q], placeholder: 'Search' %>
   <%= f.submit %>
 <% end %>
-Count: <%= @pages.total %>
+Count: <%= @pages.count %>
 Took: <%= @results.took %>ms
 <table>
   <thead>
@@ -22,7 +22,7 @@ Took: <%= @results.took %>ms
     <% @pages.each_with_index do |page, index| %>
       <tr>
         <td><%= link_to page.link, "/#{page.link}" %></td>
-        <td><%= page.content %></td>
+        <td><%= @has_highlights ? @results[index].highlight.content.first.html_safe : page.content %></td>
         <td><%= @results[index]._score %></td>
         <td><%= link_to 'Show', page %></td>
         <td><%= link_to 'Edit', edit_page_path(page) %></td>

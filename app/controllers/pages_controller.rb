@@ -4,7 +4,12 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @results = Page.search(params[:q] || '*')
+    if params[:q].present?
+      @results = Page.search(query: { match: { content: params[:q] } }, highlight: { fields: { content: {} } })
+      @has_highlights = true
+    else
+      @results = Page.search('*')
+    end
     @pages = @results.records
   end
 
