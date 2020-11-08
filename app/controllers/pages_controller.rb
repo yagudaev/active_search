@@ -61,14 +61,24 @@ class PagesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
+  def import
+    Page.destroy_all
+    Dir.glob('db/docs/markdown/*').each do |file_path|
+      Page.create(link: File.basename(file_path, '.md'), content: open(file_path).read)
     end
 
-    # Only allow a list of trusted parameters through.
-    def page_params
-      params.require(:page).permit(:link, :content)
-    end
+    render plain: 'Imported successfully!'
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    @page = Page.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def page_params
+    params.require(:page).permit(:link, :content)
+  end
 end
