@@ -70,7 +70,13 @@ class PagesController < ApplicationController
   def import
     Page.destroy_all
     Dir.glob('db/docs/markdown/*').each do |file_path|
-      Page.create(link: File.basename(file_path, '.md'), content: open(file_path).read)
+      Page.create(link: "/#{File.basename(file_path, '.md')}", content: open(file_path).read)
+    end
+
+    Dir.glob('public/rdoc/**/*.html').each do |file_path|
+      link = file_path.gsub(/^public/, '')
+      text = Nokogiri::HTML(File.open(file_path)).text
+      Page.create(link: link, content: text)
     end
 
     render plain: "Imported successfully! Created #{Page.count} pages"
